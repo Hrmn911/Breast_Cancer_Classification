@@ -1,5 +1,6 @@
 import pandas as pd
-
+import joblib
+import os
 from sklearn.model_selection import train_test_split
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
@@ -404,3 +405,22 @@ print(
         labels=["Alive", "Dead"]
     )
 )
+
+# ============================================================
+# SAVE FINAL MODEL
+# ============================================================
+
+os.makedirs("models", exist_ok=True)
+
+model_artifact = {
+    "model": balanced_lr,
+    "threshold": selected_threshold,
+    "target_class": "Dead"
+}
+
+joblib.dump(
+    model_artifact,
+    "models/balanced_logistic_regression.pkl"
+)
+
+print("\nFinal model saved successfully!")
