@@ -2,7 +2,7 @@
 import pandas as pd
 
 # Load dataset
-df = pd.read_csv("dataset/Breast_Cancer.csv")
+df = pd.read_csv("data/Breast_Cancer.csv")
 
 # Display first five records
 print("\nFIRST FIVE RECORDS")
